@@ -70,7 +70,7 @@ class GameApp extends HookWidget {
     } else {
       button = MaterialButton(
         onPressed: () => {provider.increment()},
-        child: Text('参加'),
+        child: Text('イエス'),
         color: Colors.blueAccent,
         textColor: Colors.white,
       );
