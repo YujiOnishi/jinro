@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:state_notifier/state_notifier.dart';
 
-final counterProvider = StateNotifierProvider((_) => Game());
-
+final gameProvider = StateNotifierProvider((_) => Game());
 class Game extends StateNotifier<int> {
   Game() : super(0);
   List<TextEditingController> _controllers;

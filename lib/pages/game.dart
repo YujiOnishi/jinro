@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
-import '../provider/container.dart';
+import '../provider/game.dart';
 
-// Note: CounterApp is a HookWidget, from flutter_hooks.
 class GameApp extends HookWidget {
   @override
   Widget build(BuildContext context) {
