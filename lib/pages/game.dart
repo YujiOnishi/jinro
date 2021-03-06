@@ -64,7 +64,7 @@ class GameApp extends HookWidget {
         textColor: Colors.white,
       );
       return button;
-    } else if (count / 2 >= (provider.controllers.length + 1) - 1) {
+    } else if (count / 2 >= provider.controllers.length) {
       button = Container();
       return button;
     } else {
@@ -84,9 +84,9 @@ class GameApp extends HookWidget {
     if (count >= (provider.controllers.length + 1) * 2 - 1) {
       buttons = [Container()];
       return buttons;
-    } else if (count / 2 >= (provider.controllers.length + 1) - 1) {
+    } else if (count / 2 >= provider.controllers.length) {
       buttons = [];
-      for (int i = 0; i < (provider.controllers.length + 1) - 1; i++) {
+      for (int i = 0; i < provider.controllers.length ; i++) {
         buttons.add(
           Padding(
             padding: EdgeInsets.all(20),
@@ -127,10 +127,10 @@ class GameApp extends HookWidget {
     String text;
     int count = provider.state;
 
-    if (count >=(provider.controllers.length + 1)* 2) {
+    if (count >= (provider.controllers.length + 1) * 2) {
       text = "";
       return text;
-    } else if (count >= (provider.controllers.length + 1)* 2 - 1) {
+    } else if (count >= (provider.controllers.length + 1) * 2 - 1) {
       int divinationNum = provider.divinationNum;
       if (divinationNum == (provider.controllers.length + 1)) {
         text = "場の役職は" +
@@ -159,7 +159,7 @@ class GameApp extends HookWidget {
     } else if (count >= (provider.controllers.length + 1) * 2 - 1) {
       text = "占い師の方は占い完了ボタンを押してください。";
       return text;
-    } else if (count / 2 >= (provider.controllers.length + 1) - 1) {
+    } else if (count / 2 >= provider.controllers.length) {
       text = "目をつむって机をたたいてください。";
       return text;
     } else if (count % 2 == 0) {
