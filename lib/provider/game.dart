@@ -11,6 +11,7 @@ class Game extends StateNotifier<int> {
   List<String> _positions = [
     "村人",
     "村人",
+    "村人",
     "人狼",
     "人狼",
     "占い師",

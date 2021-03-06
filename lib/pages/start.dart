@@ -10,6 +10,7 @@ class StartApp extends HookWidget {
     TextEditingController(),
     TextEditingController(),
     TextEditingController(),
+    TextEditingController(),
     TextEditingController()
   ];
 
@@ -50,7 +51,7 @@ class StartApp extends HookWidget {
 
   List<Widget> createPlayerWidgets() {
     List<Widget> players = List<Widget>();
-    for (int i = 0; i < 4; i++) {
+    for (int i = 0; i < 5; i++) {
       players.add(
         Padding(
           padding: EdgeInsets.all(20),
