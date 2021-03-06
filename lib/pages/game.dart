@@ -4,6 +4,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 
 import '../provider/game.dart';
 
+// Note: CounterApp is a HookWidget, from flutter_hooks.
 class GameApp extends HookWidget {
   @override
   Widget build(BuildContext context) {
@@ -44,7 +45,7 @@ class GameApp extends HookWidget {
     Widget button;
     int count = provider.state;
 
-    if (count >= provider.controllers.length * 2) {
+    if (count >= (provider.controllers.length + 1) * 2) {
       button = MaterialButton(
         onPressed: () {
           provider.state = 0;
@@ -55,7 +56,7 @@ class GameApp extends HookWidget {
         textColor: Colors.white,
       );
       return button;
-    } else if (count >= provider.controllers.length * 2 - 1) {
+    } else if (count >= (provider.controllers.length + 1) * 2 - 1) {
       button = MaterialButton(
         onPressed: () => {provider.increment()},
         child: Text('占い完了！'),
@@ -63,7 +64,7 @@ class GameApp extends HookWidget {
         textColor: Colors.white,
       );
       return button;
-    } else if (count / 2 >= provider.controllers.length - 1) {
+    } else if (count / 2 >= (provider.controllers.length + 1) - 1) {
       button = Container();
       return button;
     } else {
@@ -80,12 +81,12 @@ class GameApp extends HookWidget {
   List<Widget> createDivinationButtons(provider) {
     List<Widget> buttons;
     int count = provider.state;
-    if (count >= provider.controllers.length * 2 - 1) {
+    if (count >= (provider.controllers.length + 1) * 2 - 1) {
       buttons = [Container()];
       return buttons;
-    } else if (count / 2 >= provider.controllers.length - 1) {
+    } else if (count / 2 >= (provider.controllers.length + 1) - 1) {
       buttons = [];
-      for (int i = 0; i < provider.controllers.length - 1; i++) {
+      for (int i = 0; i < (provider.controllers.length + 1) - 1; i++) {
         buttons.add(
           Padding(
             padding: EdgeInsets.all(20),
@@ -107,7 +108,7 @@ class GameApp extends HookWidget {
           child: MaterialButton(
             onPressed: () {
               provider.increment();
-              provider.setDivinationNum(provider.controllers.length);
+              provider.setDivinationNum((provider.controllers.length + 1));
             },
             child: Text('場を占う'),
             color: Colors.blueAccent,
@@ -126,12 +127,12 @@ class GameApp extends HookWidget {
     String text;
     int count = provider.state;
 
-    if (count >= provider.controllers.length * 2) {
+    if (count >=(provider.controllers.length + 1)* 2) {
       text = "";
       return text;
-    } else if (count >= provider.controllers.length * 2 - 1) {
+    } else if (count >= (provider.controllers.length + 1)* 2 - 1) {
       int divinationNum = provider.divinationNum;
-      if (divinationNum == provider.controllers.length) {
+      if (divinationNum == (provider.controllers.length + 1)) {
         text = "場の役職は" +
             provider.positions[divinationNum] +
             "と" +
@@ -152,13 +153,13 @@ class GameApp extends HookWidget {
     String text;
     int count = provider.state;
 
-    if (count >= provider.controllers.length * 2) {
+    if (count >= (provider.controllers.length + 1) * 2) {
       text = "ゲームスタート！";
       return text;
-    } else if (count >= provider.controllers.length * 2 - 1) {
+    } else if (count >= (provider.controllers.length + 1) * 2 - 1) {
       text = "占い師の方は占い完了ボタンを押してください。";
       return text;
-    } else if (count / 2 >= provider.controllers.length - 1) {
+    } else if (count / 2 >= (provider.controllers.length + 1) - 1) {
       text = "目をつむって机をたたいてください。";
       return text;
     } else if (count % 2 == 0) {

@@ -10,7 +10,6 @@ class StartApp extends HookWidget {
     TextEditingController(),
     TextEditingController(),
     TextEditingController(),
-    TextEditingController(),
     TextEditingController()
   ];
 
